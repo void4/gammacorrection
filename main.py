@@ -12,9 +12,6 @@ def gamma(a):
 def degamma(a):
 	return tuple(int(p**(1/2.2)) for p in a)
 
-def average(a,b):
-	return ((a[0]+b[0])//2, (a[1]+b[1])//2,(a[2]+b[2])//2)
-
 def mix(a,b,p=0.5):
 	return tuple(int(a[i]*p+b[i]*(1-p)) for i in range(len(a)))
 
@@ -27,8 +24,6 @@ for y in range(h):
 			c = mix(a,b, y/w)
 		else:
 			c = degamma(mix(gamma(a), gamma(b), y/w))
-		
-		
 		
 		img.putpixel((x,y), c)
 
